@@ -33,6 +33,7 @@
 // https://www.youtube.com/@gadgetreboot
 
 #include <Adafruit_MCP23X17.h>
+#include <ESP8266WiFi.h>
 
 #define addr 0x20     // mcp23017 address when all address pins are grounded
 #define closed 1      // crosspoint junction is connected when mt8816 data = 1
@@ -62,6 +63,7 @@ const int re_dePin = D6;    // RS485 receiver/driver enable
 char serialChar = ' ';      // characters read from RS485 serial port
 
 void setup() {
+  WiFi.mode(WIFI_OFF);
   Serial.begin(115200);
   Serial.swap();                // use alternate UART pins for RS485
 
